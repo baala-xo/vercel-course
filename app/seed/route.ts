@@ -1,5 +1,5 @@
-import bcrypt from 'bcrypt';
-import postgres from 'postgres';
+// import bcrypt from 'bcrypt'; // Temporarily disabled
+{/*import postgres from 'postgres';
 import { invoices, customers, revenue, users } from '../lib/placeholder-data';
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
@@ -17,7 +17,8 @@ async function seedUsers() {
 
   const insertedUsers = await Promise.all(
     users.map(async (user) => {
-      const hashedPassword = await bcrypt.hash(user.password, 10);
+      // const hashedPassword = await bcrypt.hash(user.password, 10); // Disabled for now
+      const hashedPassword = 'placeholder'; // Use dummy password
       return sql`
         INSERT INTO users (id, name, email, password)
         VALUES (${user.id}, ${user.name}, ${user.email}, ${hashedPassword})
@@ -112,6 +113,8 @@ export async function GET() {
 
     return Response.json({ message: 'Database seeded successfully' });
   } catch (error) {
-    return Response.json({ error }, { status: 500 });
+    console.error(error);
+    return Response.json({ error: String(error) }, { status: 500 });
   }
 }
+*/}
